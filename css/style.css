@@ -1,0 +1,107 @@
+/* Imports */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+/* CSS Reset */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  background: rgb(39, 37, 37, 0.85);
+}
+
+/* list items and links  */
+li,
+a {
+  text-decoration: none;
+  list-style: none;
+}
+
+/* Index.html styles */
+#showcase {
+  display: grid;
+  height: 60vh;
+  grid-template-rows: 2fr 2fr;
+}
+
+.hero-image::before {
+  content: "";
+  background: url("../img/showcase/liberty.jpg") center 15% / cover;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+#location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.today-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 24rem;
+}
+
+.weather-forecast {
+  display: flex;
+}
+.weather-forecast .temp {
+  font-size: 5rem;
+  font-weight: 600;
+}
+.weather-forecast .weather-comment {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+/* Footer */
+footer {
+  padding: 10px 20px 0 20px;
+}
+footer #future-forecast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  color: #000000;
+}
+
+/* more.html styles */
+#weekly-forecast {
+  color: #f4f4f4;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.background::before {
+  content: "";
+  background: url("../img/bg.jpg") no-repeat center 25% / cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weather {
+  display: flex;
+}

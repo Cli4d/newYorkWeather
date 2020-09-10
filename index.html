@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/utilities.css" />
+    <link rel="stylesheet" href="/css/menu.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="hero-image">
+      <div class="menu-wrap">
+        <input type="checkbox" class="toggler" />
+        <div class="hamburger">
+          <div></div>
+        </div>
+        <div class="menu">
+          <div>
+            <div>
+              <ul>
+                <li><a href="index.html" class="current">Home</a></li>
+                <li><a href="more.html">Weekly Forecast</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <main id="showcase">
+        <section id="location">
+          <i class="fas fa-map-marker-alt fa-3x"></i>
+          <div class="mg-left">
+            <h1 class="lead" id="city">New York</h1>
+            <h3 id="country">USA</h3>
+          </div>
+        </section>
+        <section id="main">
+          <div class="today-info container">
+            <div class="weather-forecast">
+              <img id="w-icon" />
+              <div id="info">
+                <div class="mg-left">
+                  <p class="date"></p>
+                  <p class="temp"></p>
+                  <p class="weather-comment"></p>
+                </div>
+              </div>
+            </div>
+            <div id="more-info">
+              <h2 class="pd-2">More weather Information</h2>
+              <ul class="list-group mt-3" id="w-details">
+                <li class="pd-2" id="humidity"></li>
+                <li class="pd-2" id="dewpoint"></li>
+                <li class="pd-2" id="feels-like"></li>
+                <li class="pd-2" id="wind"></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <h2 class="pd-1"><span>Hourly</span> Forecast</h2>
+        <section id="future-forecast">
+          <div>
+            <p class="time pd-2">1200hrs</p>
+            <img src="" alt="" class="h-icon" />
+            <p class="h-temp">30°</p>
+          </div>
+          <div>
+            <p class="time pd-2">1200hrs</p>
+            <img src="" alt="" class="h-icon" />
+            <p class="h-temp">30°</p>
+          </div>
+          <div>
+            <p class="time pd-1">1200hrs</p>
+            <img src="" alt="" class="h-icon" />
+            <p class="h-temp">30°</p>
+          </div>
+          <div>
+            <p class="time pd-1">1200hrs</p>
+            <img src="" alt="" class="h-icon" />
+            <p class="h-temp">30</p>
+          </div>
+          <div>
+            <p class="time pd-1">1200hrs</p>
+            <img src="" alt="" class="h-icon" />
+            <p class="h-temp">30°</p>
+          </div>
+        </section>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
