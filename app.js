@@ -8,32 +8,29 @@ const cFeelsLike = document.getElementById("feels-like");
 const cDewPoint = document.getElementById("dewpoint");
 const cDate = document.querySelector(".date");
 
-// UI variables - hourly weather data
-const hTemp = document.querySelectorAll("#future-forecast .h-temp");
-const hTime = document.querySelectorAll("#future-forecast .time");
-const hIcon = document.querySelectorAll("#future-forecast .h-icon");
-
 // UI variables - weekly forecast
-const wTemp = document.querySelectorAll("#weekly-forecast .w-temp");
-const wIcon = document.querySelectorAll("#weekly-forecast .w-icon");
-const wComment = document.querySelectorAll("#weekly-forecast .w-comment");
-const wTime = document.querySelectorAll("#weekly-forecast .w-time");
+const wTemp = document.querySelectorAll(".w-temp");
+const wIcon = document.querySelectorAll(".w-icon");
+const wComment = document.querySelectorAll(".w-comment");
+const wTime = document.querySelectorAll(".w-time");
+
 // Date
 let options = {
   weekday: "long",
   year: "numeric",
   month: "long",
-  day: "numeric",
+  day: "numeric"
 };
+
 let today = new Date();
 
 // Post current date on UI
-cDate.textContent = today.toLocaleDateString("en-US", options); // Saturday, September 17, 2016
+cDate.textContent = today.toLocaleDateString("en-US", options);
 
 // Weather class
 class Weather {
   constructor(lat, lon) {
-    this.apiKey = "2af63e193859ec031b1f4f81fb27bb61";
+    this.apiKey = api;
     this.lat = lat;
     this.lon = lon;
   }
@@ -46,7 +43,6 @@ exclude=minutely&appid=${this.apiKey}`
     );
 
     const respData = await response.json();
-
     return respData;
   }
 }
@@ -62,36 +58,30 @@ class UI {
   paint(weather) {
     // Current weather
     cDesc.textContent = weather.current.weather[0].description;
-    // let temp = convertTemp(weather.current.temp);
     cTemp.textContent = `${convertTemp(weather.current.temp)}°C`;
     cIcon.setAttribute(
       "src",
       `http://openweathermap.org/img/wn/${weather.current.weather[0].icon}@2x.png`
     );
     cHumidity.textContent = `Relative humidity: ${weather.current.humidity}%`;
-    cFeelsLike.textContent = `Feels like: ${weather.current.feels_like}K`;
+    cFeelsLike.textContent = `Feels like: ${convertTemp(
+      weather.current.feels_like
+    )}°C`;
     cDewPoint.textContent = `Dew point: ${weather.current.dew_point}`;
-    cWind.textContent = `Wind Speed: ${weather.current.wind_speed}m/s`;
-
-    // Hourly weather forecast
-    console.log(weather);
-    for (let i = 0; i <= 5; i++) {
-      for (let c = 0; c <= 48; c += 4) {
-        let locTime = `${new Date(
-          weather.hourly[c].dt - weather.timezone_offset
-        ).getHours()}:${new Date(
-          weather.hourly[c].dt - weather.timezone_offset
-        ).getMinutes()}`;
-        hTime[i].textContent = locTime;
-        hTemp[i].textContent = `${convertTemp(weather.hourly[c].temp)}°C`;
-        hIcon[i].setAttribute(
-          "src",
-          `http://openweathermap.org/img/wn/${weather.hourly[c].weather[0].icon}@2x.png`
-        );
-      }
-    }
+    cWind.textContent = `Wind Speed:  ${weather.current.wind_speed}m/s`;
 
     // Weekly weather forecast
+    // for (let i = 0; i <= 7; i++) {
+    //   wTemp[i].textContent = `${convertTemp(weather.daily[i].temp)}°C`;
+    //   wIcon[i].setAttribute(
+    //     "src",
+    //     `http://openweathermap.org/img/wn/${weather.daily[i].weather[0].icon}@2x.png`
+    //   );
+    //   wComment[i].textContent = weather.daily[i].weather[0].description;
+    // }
+    console.log(wTemp);
+    console.log(wIcon);
+    console.log(wComment);
   }
 }
 
@@ -101,15 +91,20 @@ const weather = new Weather(40.73061, -73.935242);
 // Initialize UI object
 const ui = new UI();
 
-// Get weather when dom loads
+// Get weather when DOM loads
 document.addEventListener("DOMContentLoaded", getWeather);
 
 // get weather function
 function getWeather() {
   weather
     .getWeather()
-    .then((results) => {
+    .then(results => {
+      // let milliseconds = (results.current.dt + results.timezone_offset) * 1000;
+      // let date = new Date(milliseconds);
+      // let dateNow = date.toUTCString();
+      // const display = dateNow.split(",");
+      console.log(results);
       ui.paint(results);
     })
-    .catch((err) => console.log(err));
+    .catch(err => console.log(err));
 }
