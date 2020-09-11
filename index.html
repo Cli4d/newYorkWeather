@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/utilities.css" />
     <link rel="stylesheet" href="/css/menu.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width:768px)"
+      href="/css/mobile.css"
+    />
     <title>Weather App</title>
   </head>
   <body>
@@ -37,7 +42,7 @@
           <i class="fas fa-map-marker-alt fa-3x"></i>
           <div class="mg-left">
             <h1 class="lead" id="city">New York</h1>
-            <h3 id="country">USA</h3>
+            <h3>USA</h3>
           </div>
         </section>
         <section id="main">
@@ -64,38 +69,9 @@
           </div>
         </section>
       </main>
-      <footer>
-        <h2 class="pd-1"><span>Hourly</span> Forecast</h2>
-        <section id="future-forecast">
-          <div>
-            <p class="time pd-2">1200hrs</p>
-            <img src="" alt="" class="h-icon" />
-            <p class="h-temp">30°</p>
-          </div>
-          <div>
-            <p class="time pd-2">1200hrs</p>
-            <img src="" alt="" class="h-icon" />
-            <p class="h-temp">30°</p>
-          </div>
-          <div>
-            <p class="time pd-1">1200hrs</p>
-            <img src="" alt="" class="h-icon" />
-            <p class="h-temp">30°</p>
-          </div>
-          <div>
-            <p class="time pd-1">1200hrs</p>
-            <img src="" alt="" class="h-icon" />
-            <p class="h-temp">30</p>
-          </div>
-          <div>
-            <p class="time pd-1">1200hrs</p>
-            <img src="" alt="" class="h-icon" />
-            <p class="h-temp">30°</p>
-          </div>
-        </section>
-      </footer>
     </div>
 
+    <script src="apiKey.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
