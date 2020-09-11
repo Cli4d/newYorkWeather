@@ -1,0 +1,41 @@
+.hero-image::before {
+  height: 121vh;
+}
+
+#showcase {
+  grid-template-rows: 2fr;
+}
+
+#showcase #location {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.weather-forecast .weather-comment {
+  font-size: 1.35rem;
+}
+.lead {
+  font-size: 2.5rem;
+  margin-bottom: 0.1rem;
+}
+
+#location {
+  margin-top: 2.5rem;
+  flex-direction: row;
+}
+
+.today-info {
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+}
+
+.weather-forecast {
+  grid-template-columns: 1fr;
+}
+
+.container .day {
+  grid-template-columns: 1fr 5fr !important;
+}
+.contaainer .weather {
+  grid-template-columns: 1fr !important;
+}
