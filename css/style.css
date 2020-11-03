@@ -68,10 +68,6 @@ a {
 #weekly-forecast {
   color: #f4f4f4;
   font-size: 20px;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
 }
 
 .background::before {

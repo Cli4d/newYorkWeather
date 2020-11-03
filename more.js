@@ -33,29 +33,7 @@ function convertTemp(value) {
 // UI Class
 class UI {
   paint(weather) {
-    // // Current weather
-    // cDesc.textContent = weather.current.weather[0].description;
-    // cTemp.textContent = `${convertTemp(weather.current.temp)}°C`;
-    // cIcon.setAttribute(
-    //   "src",
-    //   `http://openweathermap.org/img/wn/${weather.current.weather[0].icon}@2x.png`
-    // );
-    // cHumidity.textContent = `Relative humidity: ${weather.current.humidity}%`;
-    // cFeelsLike.textContent = `Feels like: ${convertTemp(
-    //   weather.current.feels_like
-    // )}°C`;
-    // cDewPoint.textContent = `Dew point: ${weather.current.dew_point}`;
-    // cWind.textContent = `Wind Speed:  ${weather.current.wind_speed}m/s`;
-
     // Weekly weather forecast
-    // wTemp[0].textContent = `${convertTemp(
-    //   (weather.daily[0].temp.max + weather.daily[0].temp.min) / 2
-    // )}°C`;
-    // wIcon[0].setAttribute(
-    //   "src",
-    //   `http://openweathermap.org/img/wn/${weather.daily[0].weather[0].icon}@2x.png`
-    // );
-    wComment[0].textContent = weather.daily[0].weather[0].description;
     for (let i = 0; i <= 7; i++) {
       wTemp[i].textContent = `${convertTemp(
         (weather.daily[i].temp.max + weather.daily[i].temp.min) / 2
@@ -82,9 +60,9 @@ document.addEventListener("DOMContentLoaded", getWeather);
 function getWeather() {
   weather
     .getWeather()
-    .then(results => {
+    .then((results) => {
       console.log(results);
       ui.paint(results);
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 }

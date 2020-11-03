@@ -15,7 +15,6 @@ let options = {
   day: "numeric"
 };
 let today = new Date();
-
 date.textContent = today.toLocaleDateString("en-US", options);
 
 // Weather class
@@ -49,7 +48,7 @@ class UI {
   paint(weather) {
     // Current weather
     cDesc.textContent = weather.current.weather[0].description;
-    cTemp.textContent = `${convertTemp(weather.current.temp)}°C`;
+    cTemp.innerHTML = `${convertTemp(weather.current.temp)}&degC`;
     cIcon.setAttribute(
       "src",
       `http://openweathermap.org/img/wn/${weather.current.weather[0].icon}@2x.png`
@@ -77,7 +76,6 @@ function getWeather() {
   weather
     .getWeather()
     .then(results => {
-      // console.log(results);
       ui.paint(results);
     })
     .catch(err => console.log(err));

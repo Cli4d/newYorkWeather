@@ -14,6 +14,7 @@
 .weather-forecast .weather-comment {
   font-size: 1.35rem;
 }
+
 .lead {
   font-size: 2.5rem;
   margin-bottom: 0.1rem;
@@ -26,7 +27,7 @@
 
 .today-info {
   grid-template-columns: 1fr;
-  gap: 3.5rem;
+  gap: 7.5rem;
 }
 
 .weather-forecast {
